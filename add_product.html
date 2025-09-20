@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Add Product (Admin Only)</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('product_list') }}">Products</a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Add New Product</h2>
+        <form method="post">
+            <label>Name:</label><br>
+            <input type="text" name="name" required><br><br>
+            <label>Price:</label><br>
+            <input type="number" name="price" step="0.01" required><br><br>
+            <label>Description:</label><br>
+            <textarea name="desc" required></textarea><br><br>
+            <label>Image Path (e.g. img/tablet.jpg):</label><br>
+            <input type="text" name="img"><br><br>
+            <button class="button" type="submit">Add Product</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color:red;">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <footer>
+        &copy; 2025 Qasim jiho Premium
+    </footer>
+</body>
+</html>
