@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Qasim jiho Premium</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('product_list') }}">Products</a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Thank you for your purchase!</h2>
+        <p>Your order has been placed.</p>
+        <a class="button" href="/">Return to Home</a>
+    </div>
+    <footer>
+        &copy; 2025 Qasim jiho Premium
+    </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Qasim jiho Premium</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{{ url_for('product_list') }}">Products</a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>{{ product.name }}</h2>
+        {% if product.img %}
+        <img src="{{ url_for('static', filename=product.img)  }}",currency= 'pkr' alt="{{ product.name }}" style="max-width:300px; border-radius:10px; margin-bottom:1rem;">
+        {% endif %}
+        <p>{{ product.desc }}</p>
+        <p><b>Price: pakistani Ruppes {{ product.price }}</b></p>
+        <a class="button" href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart</a>
+        <a class="button" href="{{ url_for('product_list') }}">Back to Products</a>
+    </div>
+    <footer>
+        &copy; 2025 Qasim jiho Premium
+    </footer>
+</body>
+</html>
